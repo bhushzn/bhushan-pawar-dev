@@ -21,7 +21,7 @@ export function Hero() {
       className="relative flex min-h-screen items-center px-4 pt-28 pb-16 sm:px-6"
     >
       <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-        <motion.div style={reduce ? undefined : { y, opacity }}>
+        <motion.div style={reduce ? {} : { y, opacity }}>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          style={reduce ? undefined : { scale }}
+          style={reduce ? {} : { scale }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -146,7 +146,7 @@ export function Hero() {
 
       <motion.a
         href="#about"
-        style={reduce ? undefined : { opacity }}
+        style={reduce ? {} : { opacity }}
         className="absolute inset-x-0 bottom-6 mx-auto flex w-max flex-col items-center gap-2 font-mono text-[0.6rem] tracking-[0.3em] text-muted-foreground hover:text-foreground"
       >
         SCROLL TO EXPLORE
