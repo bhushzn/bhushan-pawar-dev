@@ -34,6 +34,9 @@ export const MARQUEE_ITEMS = [
   "BLOCKCHAIN",
 ];
 
+export const PROJECT_GROUPS = ["Web", "AI", "Web3", "Blockchain"] as const;
+export type ProjectGroup = (typeof PROJECT_GROUPS)[number];
+
 export type Project = {
   id: string;
   index: string;
@@ -41,6 +44,7 @@ export type Project = {
   category: string;
   description: string;
   tags: string[];
+  groups: ProjectGroup[];
   featured?: boolean;
   links: { label: string; href: string }[];
   detail: {
@@ -63,6 +67,7 @@ export const PROJECTS: Project[] = [
     description:
       "An AI-powered phishing detection concept designed to identify suspicious websites, QR codes and digital threats.",
     tags: ["React", "AI", "Python", "MongoDB", "Browser Extension"],
+    groups: ["AI", "Web"],
     featured: true,
     links: [
       { label: "Live Demo ↗", href: "#" },
@@ -95,6 +100,7 @@ export const PROJECTS: Project[] = [
     description:
       "A digital healthcare-focused web application exploring modern interfaces and technology-driven workflows.",
     tags: ["React", "Web3", "UI/UX", "JavaScript"],
+    groups: ["Web", "Web3", "Blockchain"],
     links: [
       { label: "View Project ↗", href: "#" },
       { label: "GitHub ↗", href: "https://github.com/bhushzn" },
@@ -123,6 +129,7 @@ export const PROJECTS: Project[] = [
     description:
       "A Python-based voice assistant created to explore voice interaction, automation and AI-assisted experiences.",
     tags: ["Python", "AI", "Voice", "Automation"],
+    groups: ["AI"],
     links: [
       { label: "View Project ↗", href: "#" },
       { label: "GitHub ↗", href: "https://github.com/bhushzn" },
@@ -146,6 +153,7 @@ export const PROJECTS: Project[] = [
     description:
       "An experimental interactive experience combining audio, lyrics, animation and canvas-based interactions.",
     tags: ["React", "Canvas", "Web Audio", "Animation"],
+    groups: ["Web"],
     links: [{ label: "Explore ↗", href: "#" }],
     detail: {
       overview:
