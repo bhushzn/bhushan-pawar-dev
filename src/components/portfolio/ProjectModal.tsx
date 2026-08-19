@@ -39,8 +39,8 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
         (n) => n.offsetParent !== null || n === document.activeElement,
       );
       if (nodes.length === 0) return;
-      const first = nodes[0];
-      const last = nodes[nodes.length - 1];
+      const first = nodes[0]!;
+      const last = nodes[nodes.length - 1]!;
       const activeEl = document.activeElement as HTMLElement | null;
       if (e.shiftKey && (activeEl === first || !panelRef.current.contains(activeEl))) {
         e.preventDefault();
