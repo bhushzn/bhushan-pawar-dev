@@ -7,10 +7,8 @@ export const PROFILE = {
   github: "https://github.com/bhushzn",
   githubHandle: "bhushzn",
   linkedin: "https://www.linkedin.com/in/bhushan-pawar-b450812b2",
-  // TODO: replace with a real contact address / form endpoint
-  emailPlaceholder: "your.email@example.com",
-  // TODO: replace with the real resume file (place it in /public)
-  resumeUrl: "/resume-placeholder.pdf",
+  emailPlaceholder: "bhushanpawar109876@gmail.com",
+  resumeUrl: "/resume.pdf",
 };
 
 export const NAV_LINKS = [
@@ -93,32 +91,33 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    id: "cure-ledger",
+    id: "barter-buddies",
     index: "02",
-    title: "Cure-Ledger",
-    category: "Web App • Healthcare • Web3",
+    title: "BarterBuddies",
+    category: "Web App • Education • Gamification",
     description:
-      "A digital healthcare-focused web application exploring modern interfaces and technology-driven workflows.",
-    tags: ["React", "Web3", "UI/UX", "JavaScript"],
-    groups: ["Web", "Web3", "Blockchain"],
+      "A fun and educational platform where students exchange skills through challenges and quizzes.",
+    tags: ["React", "Supabase", "Vercel AI"],
+    groups: ["Web", "AI"],
     links: [
       { label: "View Project ↗", href: "#" },
       { label: "GitHub ↗", href: "https://github.com/bhushzn" },
     ],
     detail: {
       overview:
-        "A healthcare-oriented web application concept focused on clean record workflows and modern interface patterns.",
-      problem: "Healthcare records and workflows are often fragmented and hard to navigate.",
+        "Designed a gamified system for students to learn from each other, focusing on a clean design, fair play, and mobile-friendly experience.",
+      problem: "Traditional learning can lack engagement and peer-to-peer interaction.",
       solution:
-        "A focused web interface exploring record handling with Web3-inspired ideas around ownership and verifiability.",
-      technology: "React, JavaScript, Web3 concepts, UI/UX design.",
+        "A platform where students exchange skills using challenges, leaderboards, and MCQ testing.",
+      technology: "React, Supabase, Vercel AI",
       features: [
-        "Record-centric interface",
-        "Responsive dashboard layout",
-        "Exploratory Web3 integration patterns",
+        "Skill swapping logic",
+        "Leaderboards",
+        "MCQ testing",
+        "Gamified learning experience"
       ],
-      architecture: "React SPA with modular views. (Editable placeholder.)",
-      status: "Work in progress — placeholder content.",
+      architecture: "React frontend with Supabase backend and Vercel AI integration.",
+      status: "Successfully built and showcased.",
     },
   },
   {
@@ -288,26 +287,26 @@ export const ACHIEVEMENTS = [
   },
   {
     icon: "shield" as const,
-    title: "Integrity Award",
-    year: "—",
-    text: "Recognised for integrity. Editable card — add details when confirmed.",
+    title: "Project Showcase",
+    year: "2025",
+    text: "Successfully built and showcased BarterBuddies.",
   },
   {
     icon: "code" as const,
     title: "Hackathon & Technical Projects",
     year: "2026",
-    text: "Participation in hackathons and technical project work.",
+    text: "Participation in hackathons and coding challenges.",
   },
   {
     icon: "flag" as const,
-    title: "NCC Activities",
-    year: "—",
-    text: "Participation in NCC training and activities.",
+    title: "AI Tools Exploration",
+    year: "2025",
+    text: "Started exploring Vercel AI, Lovable AI, and prompt engineering.",
   },
   {
     icon: "mic" as const,
-    title: "Speaker & Skill Development",
-    year: "—",
-    text: "Involvement in speaking sessions and skill development activities.",
+    title: "Continuous Learning",
+    year: "2025",
+    text: "Actively learning new technologies and improving coding skills.",
   },
 ];

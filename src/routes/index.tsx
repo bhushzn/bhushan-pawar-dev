@@ -6,6 +6,13 @@ import { Hero } from "@/components/portfolio/Hero";
 import { TechMarquee } from "@/components/portfolio/TechMarquee";
 import { About } from "@/components/portfolio/About";
 import { Projects } from "@/components/portfolio/Projects";
+import { LoadingScreen } from "@/components/portfolio/LoadingScreen";
+import { SignatureTransition } from "@/components/portfolio/SignatureTransition";
+import { Skills } from "@/components/portfolio/Skills";
+import { Journey } from "@/components/portfolio/Journey";
+import { Achievements } from "@/components/portfolio/Achievements";
+import { Contact } from "@/components/portfolio/Contact";
+import { Footer } from "@/components/portfolio/Footer";
 
 const title = "Bhushan Pawar — Developer, AI Enthusiast & Future Blockchain Dev";
 const description =
@@ -28,6 +35,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="relative min-h-screen">
+      <LoadingScreen />
       <AnimatedBackground />
       <ScrollProgress />
       <CursorGlow />
@@ -37,7 +45,13 @@ function Index() {
         <TechMarquee />
         <About />
         <Projects />
+        <SignatureTransition />
+        <Skills />
+        <Journey />
+        <Achievements />
+        <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
