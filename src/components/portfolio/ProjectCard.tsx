@@ -22,15 +22,17 @@ export function ProjectCard({
   return (
     <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      initial={{ opacity: 0, scale: 0.95, y: 36 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className={cn(project.featured && "lg:col-span-2")}
     >
-      <Tilt intensity={project.featured ? 4 : 6}>
-        <div className="group surface-card glow-border relative h-full overflow-hidden p-6 transition-colors hover:border-primary/40 sm:p-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_circle_at_20%_0%,oklch(0.66_0.22_300/12%),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <Tilt intensity={project.featured ? 6 : 10}>
+        <div className="group surface-card glow-border relative h-full overflow-hidden p-6 transition-colors duration-500 hover:border-primary/60 sm:p-8 hover:shadow-[0_0_40px_-10px_oklch(0.85_0.15_190/30%)]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_circle_at_20%_0%,oklch(0.85_0.15_190/18%),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="pointer-events-none absolute inset-0 frost-blur opacity-0 transition-opacity duration-500 group-hover:opacity-100 mix-blend-overlay" />
 
           <div className={cn("relative grid gap-8", project.featured && "lg:grid-cols-[1fr_1.05fr] lg:items-center")}>
             <div>
@@ -91,11 +93,11 @@ export function ProjectCard({
 
             <motion.div
               style={reduce ? {} : { y: visualY }}
-              className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-[image:linear-gradient(160deg,oklch(0.22_0.02_290),oklch(0.18_0.015_285))]"
+              className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-[image:linear-gradient(160deg,oklch(0.12_0_0),oklch(0.16_0_0))]"
             >
-              <div className="absolute inset-0 grid-bg opacity-50" />
-              <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[radial-gradient(circle,oklch(0.66_0.22_300/30%),transparent_65%)] blur-xl transition-transform duration-700 group-hover:translate-x-4 group-hover:translate-y-4" />
-              <div className="relative flex h-full flex-col justify-between p-5">
+              <div className="absolute inset-0 grid-bg opacity-30 group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[radial-gradient(circle,oklch(0.85_0.15_190/40%),transparent_65%)] blur-2xl transition-transform duration-700 group-hover:translate-x-4 group-hover:translate-y-4 group-hover:scale-150" />
+              <div className="relative flex h-full flex-col justify-between p-5 z-10 transition-transform duration-500 group-hover:translate-y-[-4px]">
                 <div className="flex gap-1.5">
                   <span className="size-2 rounded-full bg-destructive/60" />
                   <span className="size-2 rounded-full bg-primary/60" />

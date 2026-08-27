@@ -38,33 +38,33 @@
 
 :root {
   --radius: 0.9rem;
-  --background: oklch(0.16 0.012 285);
-  --foreground: oklch(0.96 0.005 285);
-  --card: oklch(0.2 0.014 285);
-  --card-foreground: oklch(0.96 0.005 285);
-  --popover: oklch(0.19 0.014 285);
-  --popover-foreground: oklch(0.96 0.005 285);
-  --primary: oklch(0.66 0.22 300);
-  --primary-foreground: oklch(0.14 0.01 285);
-  --secondary: oklch(0.78 0.14 210);
-  --secondary-foreground: oklch(0.14 0.01 285);
-  --muted: oklch(0.24 0.014 285);
-  --muted-foreground: oklch(0.68 0.015 285);
-  --accent: oklch(0.72 0.16 250);
-  --accent-foreground: oklch(0.14 0.01 285);
+  --background: oklch(0.12 0 0); /* Obsidian Black */
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.14 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.14 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.85 0.15 190); /* Electric Cyan */
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.75 0.15 160); /* Teal/Emerald */
+  --secondary-foreground: oklch(0.12 0 0);
+  --muted: oklch(0.20 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.78 0.16 210); /* Bright Blue Accent */
+  --accent-foreground: oklch(0.12 0 0);
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.66 0.22 300);
-  --surface: oklch(0.19 0.013 285);
-  --surface-2: oklch(0.23 0.015 285);
+  --border: oklch(1 1 1 / 8%);
+  --input: oklch(1 1 1 / 10%);
+  --ring: oklch(0.85 0.15 190);
+  --surface: oklch(0.16 0 0);
+  --surface-2: oklch(0.20 0 0);
 
   --gradient-primary: linear-gradient(
     135deg,
-    oklch(0.66 0.22 300),
-    oklch(0.72 0.16 250) 55%,
-    oklch(0.8 0.13 205)
+    oklch(0.85 0.15 190),
+    oklch(0.75 0.15 160) 55%,
+    oklch(0.78 0.16 210)
   );
   --gradient-text: linear-gradient(
     100deg,
@@ -72,8 +72,8 @@
     oklch(0.82 0.13 300) 55%,
     oklch(0.85 0.1 220)
   );
-  --glow-primary: 0 0 0 1px oklch(0.66 0.22 300 / 22%), 0 24px 70px -30px oklch(0.66 0.22 300 / 60%);
-  --shadow-card: 0 30px 80px -50px oklch(0 0 0 / 90%);
+  --glow-primary: 0 0 0 1px oklch(0.85 0.15 190 / 30%), 0 24px 70px -30px oklch(0.85 0.15 190 / 70%);
+  --shadow-card: 0 30px 80px -50px oklch(0 0 0 / 95%);
 }
 
 @layer base {
@@ -96,7 +96,7 @@
   }
 
   ::selection {
-    background: oklch(0.66 0.22 300 / 35%);
+    background: oklch(0.85 0.15 190 / 35%);
   }
 
   :focus-visible {
@@ -134,8 +134,9 @@
 }
 
 @utility glass {
-  background: color-mix(in oklab, var(--surface) 55%, transparent);
-  backdrop-filter: blur(18px) saturate(150%);
+  background: color-mix(in oklab, var(--surface) 40%, transparent);
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
   border: 1px solid var(--border);
 }
 

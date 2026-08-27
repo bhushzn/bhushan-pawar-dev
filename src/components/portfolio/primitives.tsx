@@ -1,5 +1,5 @@
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { useRef, useState, type ReactNode, type MouseEvent } from "react";
+import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion";
+import { useRef, useState, useEffect, type ReactNode, type MouseEvent } from "react";
 import { cn } from "@/lib/utils";
 
 export const fadeUp: Variants = {
@@ -139,12 +139,95 @@ export function MagneticLink({
       className={cn(
         "group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-colors",
         variant === "primary"
-          ? "bg-primary text-primary-foreground hover:bg-primary/90"
+          ? "bg-primary text-primary-foreground hover:bg-primary/90 glow-border"
           : "glass text-foreground hover:border-primary/50",
         className,
       )}
     >
       {children}
     </motion.a>
+  );
+}
+
+export function TextReveal({
+  text,
+  className,
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  delay?: number;
+}) {
+  const words = text.split(" ");
+
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: delay * i },
+    }),
+  };
+
+  const child: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      filter: "blur(10px)",
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
+  return (
+    <motion.span
+      className={cn("inline-flex flex-wrap", className)}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-50px" }}
+    >
+      {words.map((word, index) => (
+        <motion.span key={index} variants={child} className="mr-[0.25em]">
+          {word}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
+
+export function Parallax({
+  children,
+  offset = 50,
+  className,
+}: {
+  children: ReactNode;
+  offset?: number;
+  className?: string;
+}) {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [-offset, offset]);
+
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div ref={ref} style={{ y }} className={className}>
+      {children}
+    </motion.div>
   );
 }
